@@ -1,35 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {useState} from 'react';
+import Flashcard from './Flashcard';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const cards = [
+    {question : "Capital of Japan?", answer: "Tokyo"},
+    {question: "3x3?", answer: "9"},
+    {question:"Fire triangle: heat, oxygen, _?", answer: "fuel"}
+  ];
+
+  const[cardIndex, setCardIndex] = useState(0)
+
+  const showRandomCard = () =>{
+    const randomIndex = Math.floor(Math.random() * cards.length);
+    setCardIndex(randomIndex);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className = "cards">
+      <h1>Flashcards App</h1>
+      <p>Practice random flashcards!</p>
+      <p>Total Cards: {cards.length}</p>
+      <Flashcard card = {cards[cardIndex]}/>
+      <button onClick = {showRandomCard}>Next Card</button>
+    </div>
+  );
 }
 
-export default App
+export default App;
