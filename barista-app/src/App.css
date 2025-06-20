@@ -1,0 +1,33 @@
+#correct {
+  background-color: lightgreen;
+}
+
+#wrong {
+  background-color: lightcoral;
+}
+
+.answer-space {
+  width: 150px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  margin-bottom: 10px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  margin: auto;
+  position: relative;
+}
+
+.mini-container {
+  display: flex;
+  flex-direction: column;
+  margin: 50px;
+}
+
+li {
+  list-style: none;
+}
