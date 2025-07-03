@@ -16,7 +16,7 @@ function App() {
 
 
   const handleSubmit = () => {
-    const actualAnswer = cards[cardIndex].answer.trim().toLowerCase();
+    const actualAnswer =  cards[cardIndex].answer.trim().toLowerCase();
     const guess = userGuess.trim().toLowerCase();
 
     if(guess == actualAnswer){
