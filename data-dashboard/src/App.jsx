@@ -71,7 +71,7 @@ function App() {
         .map((recipe) =>(
           <div key = {recipe.id}>
             <h3>{recipe.title}</h3>
-            <img src = {recipe.image} alt = {recipe.title} with = {200} />
+            <img src = {recipe.image} alt = {recipe.title} width = {200} />
           </div>
       ))}
     </div>
