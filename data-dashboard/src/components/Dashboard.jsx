@@ -1,5 +1,14 @@
 import {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  CartesianGrid,
+  ResponsiveContainer,
+} from "recharts";
 
 const API_KEY = import.meta.env.VITE_SPOONACULAR_API_KEY;
 
@@ -17,6 +26,12 @@ function Dashboard() {
       : Math.round(
           recipes.reduce((sum, r) => sum + r.healthScore, 0) / recipes.length
         );
+  const chartData = recipes.map((r) => ({
+  name: r.title.length > 20 ? r.title.slice(0, 20) + "..." : r.title,
+  healthScore: r.healthScore,
+  readyInMinutes: r.readyInMinutes,
+  }));
+
 
 
   useEffect(() =>{
@@ -42,6 +57,28 @@ function Dashboard() {
       <p>Total Recipes: {totalRecipes}</p>
       <p>Vegetarian Recipes: {totalVegetarian}</p>
       <p>Average Health Score: {averageHealthScore}</p>
+      <h2>📈 Health Score per Recipe</h2>
+      <ResponsiveContainer width="100%" height={300}>
+        <BarChart data={chartData}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Bar dataKey="healthScore" fill="#82ca9d" />
+        </BarChart>
+      </ResponsiveContainer>
+
+      <h2>⏱️ Prep Time per Recipe</h2>
+      <ResponsiveContainer width="100%" height={300}>
+        <BarChart data={chartData}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Bar dataKey="readyInMinutes" fill="#8884d8" />
+        </BarChart>
+      </ResponsiveContainer>
+
     </div>
 
       <input

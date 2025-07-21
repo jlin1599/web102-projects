@@ -32,7 +32,9 @@ function DetailView () {
             <p><strong>Ready In:</strong>{recipe.readyInMinutes}minutes</p>
             <p><strong>Servings:</strong>{recipe.servings}</p>
             <p><strong>Health Score:</strong>{recipe.healthScore}</p>
-            <a href = {recipe.souceURL} target = "_blank" rel = "nonreferrer">View Full Recipe</a>
+            <a href={recipe.sourceUrl} target="_blank" rel="noreferrer">
+            View Full Recipe
+            </a>
         </div>
     );
 
