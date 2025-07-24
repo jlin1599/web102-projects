@@ -26,6 +26,29 @@ function DetailView () {
 
     return(
         <div>
+            <div style={{ marginBottom: "20px" }}>
+            <h2>📊 Summary</h2>
+            <p>Total Recipes: 10</p>
+            <p>Vegetarian Recipes: —</p>
+            <p>Average Health Score: —</p>
+            </div>
+
+            <input
+            type="text"
+            placeholder="Search recipes"
+            style={{ marginBottom: "20px", padding: "8px", fontSize: "16px" }}
+            disabled
+            />
+
+            <select
+            style={{ marginBottom: "20px", padding: "8px", fontSize: "16px" }}
+            disabled
+            >
+            <option value="All">All</option>
+            <option value="Vegetarian">Vegetarian</option>
+            <option value="Non-Vegetarian">Non-Vegetarian</option>
+            </select>
+
             <h1>{recipe.title}</h1>
             <img src = {recipe.image} alt = {recipe.title} width = {300} />
             <p dangerouslySetInnerHTML={{__html: recipe.summary}}></p>
